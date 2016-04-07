@@ -1,0 +1,41 @@
+grunt 学习经验：
+
+
+1：npm 安装下载node
+
+2：grunt 安装    npm install -g grunt && grunt-cli  一个是grunt模块一个是grunt命令行
+
+3：创建一个空的文件夹 demo
+
+4：npm init
+
+5:npm install grunt --save-dev  如果需要其他的插件：http://www.gruntjs.net/plugins
+
+6:配置Gruntfile.js
+
+//每一份 Gruntfile （和grunt插件）都遵循同样的格式，你所书写的Grunt代码必须放在此函数内：
+module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+      },
+      build: {
+        src: 'src/<%= pkg.name %>.js',
+        dest: 'build/<%= pkg.name %>.min.js'
+      }
+    }
+  });
+
+  // 加载包含 "uglify" 任务的插件。
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  // 默认被执行的任务列表。
+  grunt.registerTask('default', ['uglify']);
+
+};
+
+

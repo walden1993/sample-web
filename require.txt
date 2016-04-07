@@ -1,0 +1,17 @@
+require.js
+
+1.下载requirejs
+
+2.引入html
+
+<script src="js/require.js" data-main="js/main.js"></script>
+
+项目结构：
+
+www{
+	js:*
+	lib:*
+	html:*
+}
+
+3.语法参照：http://www.requirejs.cn/docs/api.html#funcmodule
